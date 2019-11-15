@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.skybiz.member01">
+
+    <uses-permission android:name="com.google.android.gm.permission.WRITE_GMAIL" />
+    <uses-permission android:name="com.google.android.gm.permission.AUTO_SEND" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".WelcomeActivity"/>
+        <!--<activity android:name=".WelcomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>-->
+        <activity android:name=".ui_MyProfile.MyProfile" />
+        <activity android:name=".ui_ForgotPassword.ForgotPassword" />
+        <activity
+            android:name=".ui_MemberCode.MemberCode2"
+            android:label="@string/title_activity_member_code2"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui_MemberCode.MemberCode"
+            android:windowSoftInputMode="adjustNothing" />
+        <activity
+            android:name=".ui_Point.PointLedger"
+            android:windowSoftInputMode="adjustNothing" />
+        <activity android:name=".ui_Product.MenuProduct" />
+        <activity android:name=".MainActivity" />
+        <!--<activity android:name=".MainActivity">
+           <intent-filter>
+               <action android:name="android.intent.action.MAIN" />
+
+               <category android:name="android.intent.category.LAUNCHER" />
+           </intent-filter>
+       </activity>-->
+
+        <!-- setting activity-alias names-->
+        <activity-alias
+            android:name="com.skybiz.member01.FirstOpen"
+            android:enabled="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="Member01"
+            android:targetActivity=".WelcomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name="com.skybiz.member01.Jati"
+            android:enabled="true"
+            android:icon="@drawable/jati"
+            android:label="Jati Member"
+            android:targetActivity=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+    </application>
+
+</manifest>
