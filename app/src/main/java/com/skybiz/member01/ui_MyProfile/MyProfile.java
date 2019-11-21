@@ -45,14 +45,35 @@ public class MyProfile extends AppCompatActivity {
         try{
             DBAdapter db=new DBAdapter(this);
             db.openDB();
-            String qCustomer="select CusCode,CusName from tb_member";
-            Cursor rsCus=db.getQuery(qCustomer);
-            while(rsCus.moveToNext()){
-                String CusCode=rsCus.getString(0);
-                String CusName=rsCus.getString(1);
+           /* String qMember="select CusCode,CusName from tb_member";
+            Cursor rsMember=db.getQuery(qMember);
+            while(rsMember.moveToNext()){
+                String CusCode=rsMember.getString(0);
+                String CusName=rsMember.getString(1);
                 RetCustomer retCustomer=new RetCustomer(this,CusCode);
                 retCustomer.execute();
                //retHistory(CusCode,CusName);
+            }*/
+            String qCustomer="Select CusCode, CusName, Email, " +
+                    " ContactTel, NRICNo, DOB," +
+                    " CategoryCode, P_assword from customer";
+            Cursor rsCus=db.getQuery(qCustomer);
+            while(rsCus.moveToNext()) {
+                String CusCode          = rsCus.getString(0);
+                String CusName          = rsCus.getString(1);
+                String Email            = rsCus.getString(2);
+                String ContactTel       = rsCus.getString(3);
+                String NRICNo           = rsCus.getString(4);
+                String DOB              = rsCus.getString(5);
+                String P_assword        = rsCus.getString(7);
+                txtCusCode.setText(CusCode);
+                txtCusName.setText(CusName);
+                txtEmail.setText(Email);
+                txtContactTel.setText(ContactTel);
+                txtDOB.setText(DOB);
+                txtNRIC.setText(NRICNo);
+                txtCategoryCode.setText("'");
+                txtPassword.setText(P_assword);
             }
             db.closeDB();
         }catch (SQLiteException e){

@@ -62,7 +62,7 @@
             android:name="com.skybiz.member01.Jati"
             android:enabled="true"
             android:icon="@drawable/jati"
-            android:label="Jati Member"
+            android:label="Jati Frozen"
             android:targetActivity=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

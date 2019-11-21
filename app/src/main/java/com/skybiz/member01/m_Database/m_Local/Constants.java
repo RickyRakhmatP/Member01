@@ -99,7 +99,7 @@ public class Constants {
             " Reason TEXT, SyncYN TEXT);";
 
     static final String CREATE_CUSTOMER="CREATE TABLE customer(RunNo INTEGER PRIMARY KEY AUTOINCREMENT," +
-            " FinCatCode TEXT ,AccountCode TEXT, CusCode TEXT, CusName TEXT, Address TEXT," +
+            " FinCatCode TEXT, AccountCode TEXT, CusCode TEXT, CusName TEXT, Address TEXT," +
             " CurCode TEXT, TermCode TEXT, D_ay TEXT, SalesPersonCode TEXT, Tel TEXT, Tel2 TEXT," +
             " Fax TEXT, Fax2 TEXT, Contact TEXT, ContactTel TEXT, Email TEXT, StatusBadYN TEXT," +
             " Town TEXT, State TEXT, Country TEXT, PostCode TEXT, L_ink TEXT, NRICNo TEXT, DOB TEXT, Sex TEXT," +

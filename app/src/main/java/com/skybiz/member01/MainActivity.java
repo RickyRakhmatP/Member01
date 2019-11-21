@@ -138,6 +138,7 @@ public class MainActivity extends AppCompatActivity {
     private void initData(){
         initView();
         fncheckmodules();
+        checkAlter();
     }
     private void deleteMember(){
         try{
@@ -145,6 +146,8 @@ public class MainActivity extends AppCompatActivity {
             db.openDB();
             String qDelete="delete from tb_member";
             db.exeQuery(qDelete);
+            String qDeleteCus="delete from customer";
+            db.exeQuery(qDeleteCus);
             db.closeDB();
         }catch (SQLiteException e){
             e.printStackTrace();
@@ -154,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             DBAdapter db=new DBAdapter(this);
             db.openDB();
-            String check="select count(*)as numrows from tb_member";
+            String check="select count(*)as numrows from customer";
             Cursor rsCheck=db.getQuery(check);
             int numrows=0;
             while(rsCheck.moveToNext()){
@@ -257,6 +260,23 @@ public class MainActivity extends AppCompatActivity {
             case "Logout":
                  lnLogOut.setVisibility(View.VISIBLE);
                 break;
+        }
+    }
+    private void checkAlter() {
+        try {
+            DBAdapter db = new DBAdapter(this);
+            db.openDB();
+            if (db.isColumnExists("customer", "P_assword") != true) {
+                String AlterTable = "ALTER TABLE customer ADD COLUMN P_assword TEXT default '' ";
+                db.exeQuery(AlterTable);
+            }
+            if (db.isColumnExists("customer", "CategoryCode") != true) {
+                String AlterTable = "ALTER TABLE customer ADD COLUMN CategoryCode TEXT default '' ";
+                db.exeQuery(AlterTable);
+            }
+            db.closeDB();
+        }catch (SQLiteException e){
+            e.printStackTrace();
         }
     }
 }

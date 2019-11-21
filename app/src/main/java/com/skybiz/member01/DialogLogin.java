@@ -131,22 +131,37 @@ public class DialogLogin extends AppCompatDialogFragment {
                         numrows = rsCheck.getInt(1);
                     }
                     if (numrows>0){
-                        String qCustomer = "select CusCode,CusName,TermCode," +
-                                "SalesPersonCode, '0' from  customer where Email='" + vEmail + "'" +
+                        String qCustomer = "select CusCode, CusName, TermCode," +
+                                " SalesPersonCode, '0', Email, " +
+                                " ContactTel, NRICNo, DOB, " +
+                                " P_assword from  customer where Email='" + vEmail + "'" +
                                 " and P_assword='" + vPassword + "' ";
                         Statement stmtCus = conn.createStatement();
                         stmtCus.execute(qCustomer);
                         ResultSet rsCus = stmtCus.getResultSet();
                         while (rsCus.next()) {
-                            vCusCode = rsCus.getString(1);
-                            vCusName = rsCus.getString(2);
-                            String TermCode = rsCus.getString(3);
-                            String SalesPersonCode = rsCus.getString(4);
-                            String RunNo = rsCus.getString(5);
+                            vCusCode                = rsCus.getString(1);
+                            vCusName                = rsCus.getString(2);
+                            String TermCode         = rsCus.getString(3);
+                            String SalesPersonCode  = rsCus.getString(4);
+                            String RunNo            = rsCus.getString(5);
+                            String Email            = rsCus.getString(6);
+                            String ContactTel       = rsCus.getString(7);
+                            String NRICNo           = rsCus.getString(8);
+                            String DOB              = rsCus.getString(9);
+                            String P_assword        = rsCus.getString(10);
                             String insertMember="insert into tb_member(CusCode, CusName, TermCode, " +
                                     "D_ay, SalesPersonCode, RunNoCus)values('"+vCusCode+"', '"+vCusName+"', '"+TermCode+"', " +
                                     "'', '"+SalesPersonCode+"', '"+RunNo+"')";
+
+                            String insertCus="insert into customer(CusCode, CusName, Email, " +
+                                    " ContactTel, NRICNo, DOB, " +
+                                    " CategoryCode, P_assword)values('"+vCusCode+"', '"+vCusName+"', '"+Email+"'," +
+                                    " '"+ContactTel+"','"+NRICNo+"', '"+DOB+"'," +
+                                    " '', '"+P_assword+"')";
+
                             db.exeQuery(insertMember);
+                            db.exeQuery(insertCus);
                         }
                         z="success";
                     }else{
