@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/color_lightblue">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -135,20 +136,20 @@
                 android:orientation="vertical"
                 android:weightSum="2"
                 android:background="@color/colorWhite"
-                android:id="@+id/lnForgotPassword">
+                android:id="@+id/lnRegister">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_marginTop="10dp"
-                    android:layout_weight="1.1"
-                    android:src="@drawable/forgot_password"/>
+                    android:layout_weight="1.2"
+                    android:src="@drawable/ic_assignment"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight=".9"
-                    android:text="Forgot Password"
+                    android:layout_weight=".8"
+                    android:text="Register New Member"
                     android:gravity="top|center"
                     android:textSize="18sp"
                     android:textColor="@color/colorBlack"/>
@@ -169,6 +170,35 @@
             android:layout_marginTop="6dp"
             android:layout_marginBottom="6dp">
 
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:orientation="vertical"
+                android:weightSum="2"
+                android:background="@color/colorWhite"
+                android:id="@+id/lnForgotPassword">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1.1"
+                    android:src="@drawable/forgot_password"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight=".9"
+                    android:text="Forgot Password"
+                    android:gravity="top|center"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorBlack"/>
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"

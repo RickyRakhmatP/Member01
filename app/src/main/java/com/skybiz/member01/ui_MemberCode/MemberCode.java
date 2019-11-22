@@ -3,6 +3,9 @@ package com.skybiz.member01.ui_MemberCode;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteException;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -12,6 +15,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,12 +25,15 @@ import com.skybiz.member01.MyBounceInterpolator;
 import com.skybiz.member01.R;
 import com.skybiz.member01.m_Database.m_Local.DBAdapter;
 import com.skybiz.member01.m_Database.m_Server.Connector;
+import com.skybiz.member01.m_Util.Barcode.BitmapUtil;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -37,6 +44,7 @@ public class MemberCode extends AppCompatActivity {
     EditText txtRedeem;
     Double dPointBF=0.00;
     Button btnGenerate;
+    ImageView imgBarcode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +56,7 @@ public class MemberCode extends AppCompatActivity {
         txtPointBF=(TextView)findViewById(R.id.txtPointBF);
         txtRedeem=(EditText) findViewById(R.id.txtRedeem);
         btnGenerate=(Button)findViewById(R.id.btnGenerate);
+        imgBarcode=(ImageView) findViewById(R.id.imgBarcode);
         btnGenerate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,7 +88,7 @@ public class MemberCode extends AppCompatActivity {
         String PointRedeem=txtRedeem.getText().toString();
         if(!PointRedeem.isEmpty()) {
             Double dPointRedeem = Double.parseDouble(PointRedeem);
-            if (dPointRedeem <= dPointBF ) {
+            if (dPointRedeem > dPointBF ) {
                 btnGenerate.setEnabled(true);
                 Toast.makeText(this,"Point Redeem Cannot More Than Balance", Toast.LENGTH_SHORT).show();
             } else {
@@ -91,8 +100,9 @@ public class MemberCode extends AppCompatActivity {
             Toast.makeText(this,"Point Redeem Cannot Empty", Toast.LENGTH_SHORT).show();
         }
     }
-    private void fnsavevoucher(){
-
+    private void fnsavevoucher(String Point){
+        SaveVoucher saveVoucher=new SaveVoucher(this,Point);
+        saveVoucher.execute();
     }
     private void setActionBar(String CusName){
         getSupportActionBar().setTitle(CusName);
@@ -161,20 +171,21 @@ public class MemberCode extends AppCompatActivity {
                 URL = "jdbc:mysql://" + IPAddress + ":" + Port + "/" + DBName + "?useUnicode=yes&characterEncoding=ISO-8859-1";
                 Connection conn = Connector.connect(URL, UserName, Password);
                 if (conn != null) {
-                    String sql ="Select DATE_FORMAT(P.D_ateTime,'%Y-%m-%d %H:%i:%s') as D_ateTime,IFNULL(P.Point,0) as Point,P.DocType," +
+                    String sql ="Select DATE_FORMAT(P.D_ateTime,'%Y-%m-%d %H:%i:%s') as D_ateTime,IFNULL(SUM(P.Point),0) as Point,P.DocType," +
                                 " P.Remark,C.CusCode,C.CusName "+
                                 " from ret_pointadjustment P inner join customer C " +
-                                " on P.cuscode=C.CusCode where C.CusCode='"+CusCode+"' order by P.RunNo desc ";
+                                " on P.cuscode=C.CusCode where C.CusCode='"+CusCode+"' GROUP BY P.cuscode ";
                     Statement statement = conn.createStatement();
                     if (statement.execute(sql)) {
                         ResultSet rsData = statement.getResultSet();
                         while (rsData.next()) {
-                            String DocType=rsData.getString(3);
-                            if(DocType.equals("Increase")) {
+                            String DocType   = rsData.getString(3);
+                            dTotalPoint      = rsData.getDouble(2);
+                           /* if(DocType.equals("Increase")) {
                                 dTotalPoint += rsData.getDouble(2);
                             }else{
-                                dTotalPoint -= rsData.getDouble(2);
-                            }
+                                dTotalPoint += rsData.getDouble(2);
+                            }*/
                         }
                         PointBF=zeroDecimal(dTotalPoint);
                         z="success";
@@ -194,7 +205,10 @@ public class MemberCode extends AppCompatActivity {
     private class SaveRedeem extends AsyncTask<Void,Void,String>{
         Context c;
         String CusCode,ItemCode,Description,UnitPrice,UOM,FactorQty,Point;
-        String IPAddress,UserName,Password,DBName,Port,URL,z,DBStatus,ItemConn,EncodeType,CurCode;
+        String IPAddress,UserName,Password,
+                DBName,Port,URL,
+                z="error",DBStatus,ItemConn,
+                EncodeType,CurCode;
 
         private SaveRedeem(Context c, String point) {
             this.c = c;
@@ -213,11 +227,12 @@ public class MemberCode extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
-            if(result==null){
+            if(result.equals("error")){
                 Toast.makeText(c,"Failure, Save Redeem", Toast.LENGTH_SHORT).show();
-            }else{
-                Toast.makeText(c,"Successfull, Save Redeem", Toast.LENGTH_SHORT).show();
-
+            }else if(result.equals("success")){
+                Toast.makeText(c,"Successful, Save Redeem", Toast.LENGTH_SHORT).show();
+                fnsavevoucher(Point);
+                fngenbarcode(ItemCode);
             }
         }
         private String calcBF() {
@@ -248,14 +263,14 @@ public class MemberCode extends AppCompatActivity {
                     CusCode=rsCus.getString(0);
 
                 }
-
+                Description ="Point Redeem";
                 UOM         ="Point";
-                ItemCode    =CusCode+";"+Point;
+                ItemCode    =CusCode+"%F"+Point;
                 UnitPrice   =Point;
                 URL = "jdbc:mysql://" + IPAddress + ":" + Port + "/" + DBName + "?useUnicode=yes&characterEncoding=ISO-8859-1";
                 Connection conn = Connector.connect(URL, UserName, Password);
                 if (conn != null) {
-                        String insertHd="Insert into ret_pointredeem_hd(Doc1No,D_ate," +
+                        /*String insertHd="Insert into ret_pointredeem_hd(Doc1No,D_ate," +
                                 "Remark,ClientCode,L_ink)values('"+Doc1No+"', '"+D_ateTime+"'," +
                                 "'', '"+CusCode+"', '1')";
                         Statement statement = conn.createStatement();
@@ -267,17 +282,20 @@ public class MemberCode extends AppCompatActivity {
                                 "'"+UnitPrice+"', '1', '1'," +
                                 "'"+UOM+"', '"+Description+"')";
                         Statement stmtDt = conn.createStatement();
-                        stmtDt.execute(insertDt);
+                        stmtDt.execute(insertDt);*/
 
-                        String vRemark="Item :"+Description+" 1 x "+CurCode+UnitPrice;
-                        String insertAdj="Insert into ret_pointadjustment(cuscode,D_ate,Point," +
-                                "DocType,Remark,D_ateTime)values('"+CusCode+"', '"+D_ate+"', '"+Point+"'," +
-                                "'Decrease', '"+vRemark+"', '"+D_ateTime+"')";
+                        String vRemark=ItemCode;
+                        String insertAdj="Insert into ret_pointadjustment(cuscode, D_ate, Point," +
+                                " DocType, Remark, D_ateTime, " +
+                                " Screen)values('"+CusCode+"', '"+D_ate+"', '-"+Point+"'," +
+                                " 'Decrease', '"+vRemark+"', '"+D_ateTime+"'," +
+                                " 'eMember01 - Generate Code' )";
                         Statement stmtAdj = conn.createStatement();
                         stmtAdj.execute(insertAdj);
                         z="success";
-                    }
-
+                }else{
+                    z="error";
+                }
                 return z;
             } catch (SQLiteException e) {
                 e.printStackTrace();
@@ -294,7 +312,7 @@ public class MemberCode extends AppCompatActivity {
                 DateFrom,UnitPrice,UOM,DateTo,Point;
         String IPAddress,UserName,Password,
                 DBName,Port,URL,
-                z,UserCode,ItemConn,
+                z="error",UserCode,ItemConn,
                 EncodeType,CurCode,CounterCode;
 
         private SaveVoucher(Context c, String point) {
@@ -314,10 +332,10 @@ public class MemberCode extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
-            if(result==null){
-                Toast.makeText(c,"Failure, Save Redeem", Toast.LENGTH_SHORT).show();
-            }else{
-                Toast.makeText(c,"Successfull, Save Redeem", Toast.LENGTH_SHORT).show();
+            if(result.equals("error")){
+                Toast.makeText(c,"Failure, Save Voucher", Toast.LENGTH_SHORT).show();
+            }else if(result.equals("success")){
+                Toast.makeText(c,"Successful, Save Voucher", Toast.LENGTH_SHORT).show();
 
             }
         }
@@ -351,13 +369,21 @@ public class MemberCode extends AppCompatActivity {
 
                 }
 
-                VoucherCode     =Doc1No;
-                URL = "jdbc:mysql://" + IPAddress + ":" + Port + "/" + DBName + "?useUnicode=yes&characterEncoding=ISO-8859-1";
+                DateFrom=datedShort();
+                DateTo  =fnaddmonth(1);
+                URL     = "jdbc:mysql://" + IPAddress + ":" + Port + "/" + DBName + "?useUnicode=yes&characterEncoding=ISO-8859-1";
                 Connection conn = Connector.connect(URL, UserName, Password);
                 if (conn != null) {
-
-
-
+                    String qCheckLast="select RunNo from stk_voucher order by RunNo Desc limit 1";
+                    Statement stmtLast=conn.createStatement();
+                    stmtLast.execute(qCheckLast);
+                    ResultSet rsLast=stmtLast.getResultSet();
+                    int RunNo=0;
+                    while(rsLast.next()){
+                        RunNo=rsLast.getInt(1);
+                    }
+                    int LastNo      =RunNo+1;
+                    VoucherCode     =Doc1No+LastNo;
                     String strSQL = "INSERT INTO stk_voucher (VoucherCode, VoucherCode2, Value, " +
                             "DateFrom, DateTo, T_ype, " +
                             "PaymentCode, CardNo, UserCode, " +
@@ -368,6 +394,8 @@ public class MemberCode extends AppCompatActivity {
                     Statement stmtVoucher = conn.createStatement();
                     stmtVoucher.execute(strSQL);
                     z="success";
+                }else{
+                    z="error";
                 }
                 return z;
             } catch (SQLiteException e) {
@@ -460,11 +488,33 @@ public class MemberCode extends AppCompatActivity {
         return textDecimal;
     }
 
+    private String fnaddmonth(int calMonth) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = new Date();
+        String curentDate = sdf.format(date);
+        Calendar c = Calendar.getInstance();
+        try {
+            c.setTime(sdf.parse(curentDate));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        c.add(Calendar.MONTH, calMonth);
+        Date resultdate = new Date(c.getTimeInMillis());
+        String NewDate = sdf.format(resultdate);
+        return NewDate;
+    }
+
 
     public void didTapButton(View view) {
         final Animation myAnim = AnimationUtils.loadAnimation(this, R.anim.bounce);
         MyBounceInterpolator interpolator = new MyBounceInterpolator(0.2, 20);
         myAnim.setInterpolator(interpolator);
         view.startAnimation(myAnim);
+    }
+
+    private void fngenbarcode(String C_ode){
+        Bitmap bmpBarcode   = BitmapUtil.generateBitmap(C_ode,4,375,100);
+        //Drawable image      = new BitmapDrawable(Bitmap.createScaledBitmap(bmpBarcode, 270, 145, true));
+        imgBarcode.setImageBitmap(bmpBarcode);
     }
 }

@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/color_lightblue">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,7 +19,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.2"
+            android:layout_weight="0.25"
             android:orientation="horizontal"
             android:weightSum="2"
             android:layout_gravity="center_horizontal"
@@ -41,13 +42,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_marginTop="10dp"
-                    android:layout_weight="1.2"
+                    android:layout_weight="1"
                     android:src="@drawable/point"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight=".8"
+                    android:layout_weight="1"
                     android:text="Point"
                     android:gravity="top|center"
                     android:textSize="18sp"
@@ -70,13 +71,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_marginTop="10dp"
-                    android:layout_weight="1.2"
+                    android:layout_weight="1"
                     android:src="@drawable/member"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight=".8"
+                    android:layout_weight="1"
                     android:text="Member Code"
                     android:gravity="top|center"
                     android:textSize="18sp"
@@ -89,13 +90,12 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.2"
+            android:layout_weight="0.25"
             android:orientation="horizontal"
             android:weightSum="2"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="6dp">
-
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -112,13 +112,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_marginTop="10dp"
-                    android:layout_weight="1.1"
+                    android:layout_weight="1"
                     android:src="@drawable/ic_account"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="0.9"
+                    android:layout_weight="1"
                     android:text="My Profile"
                     android:gravity="top|center"
                     android:textSize="18sp"
@@ -135,26 +135,25 @@
                 android:orientation="vertical"
                 android:weightSum="2"
                 android:background="@color/colorWhite"
-                android:id="@+id/lnForgotPassword">
+                android:id="@+id/lnRegister">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_marginTop="10dp"
-                    android:layout_weight="1.1"
-                    android:src="@drawable/forgot_password"/>
+                    android:layout_weight="1.0"
+                    android:src="@drawable/ic_assignment"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight=".9"
-                    android:text="Forgot Password"
+                    android:layout_weight="1.0"
+                    android:text="Register \n New Member"
                     android:gravity="top|center"
                     android:textSize="18sp"
                     android:textColor="@color/colorBlack"/>
 
             </LinearLayout>
-
 
         </LinearLayout>
 
@@ -162,12 +161,42 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.2"
+            android:layout_weight="0.25"
             android:orientation="horizontal"
             android:weightSum="2"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="6dp">
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:orientation="vertical"
+                android:weightSum="2"
+                android:background="@color/colorWhite"
+                android:id="@+id/lnForgotPassword">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/forgot_password"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="Forgot Password"
+                    android:gravity="top|center"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorBlack"/>
+
+            </LinearLayout>
 
 
             <LinearLayout
@@ -185,43 +214,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_marginTop="10dp"
-                    android:layout_weight="1.2"
+                    android:layout_weight="1"
                     android:src="@drawable/ic_exit"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight=".8"
+                    android:layout_weight="1"
                     android:text="Log Out"
-                    android:gravity="top|center"
-                    android:textSize="18sp"
-                    android:textColor="@color/colorBlack"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_marginLeft="4dp"
-                android:layout_marginRight="4dp"
-                android:orientation="vertical"
-                android:weightSum="2"
-                android:background="@color/colorWhite"
-                android:id="@+id/lnProduct">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight="1.2"
-                    android:src="@drawable/product"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight=".8"
-                    android:text="Product"
                     android:gravity="top|center"
                     android:textSize="18sp"
                     android:textColor="@color/colorBlack"/>

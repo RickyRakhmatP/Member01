@@ -201,11 +201,10 @@
 
         </LinearLayout>
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.25"
+            android:layout_weight="0.30"
             android:layout_marginTop="2dp"
             android:layout_marginBottom="2dp"
             android:weightSum="1"
@@ -222,6 +221,24 @@
                 android:textSize="20sp"
                 android:gravity="center"
                 android:background="@color/colorPrimaryDark"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.0"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:weightSum="1"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:id="@+id/imgBarcode"/>
 
         </LinearLayout>
 

@@ -19,11 +19,12 @@ import com.skybiz.member01.ui_MemberCode.MemberCode;
 import com.skybiz.member01.ui_MyProfile.MyProfile;
 import com.skybiz.member01.ui_Point.PointLedger;
 import com.skybiz.member01.ui_Product.MenuProduct;
+import com.skybiz.member01.ui_RegisterNew.RegisterMember;
 
 public class MainActivity extends AppCompatActivity {
 
 
-    LinearLayout lnProduct,lnPoint,lnMemberCode,lnLogOut,
+    LinearLayout lnRegister,lnPoint,lnMemberCode,lnLogOut,
             lnMyProfile,lnForgotPassword;
 
     boolean doubleBackToExitPressedOnce = false;
@@ -34,17 +35,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getSupportActionBar().setTitle(R.string.app_ver);
         lnPoint=(LinearLayout)findViewById(R.id.lnPoint);
-        lnProduct=(LinearLayout)findViewById(R.id.lnProduct);
+        lnRegister=(LinearLayout)findViewById(R.id.lnRegister);
         lnMemberCode=(LinearLayout)findViewById(R.id.lnMemberCode);
         lnForgotPassword=(LinearLayout)findViewById(R.id.lnForgotPassword);
         lnMyProfile=(LinearLayout)findViewById(R.id.lnMyProfile);
         lnLogOut=(LinearLayout)findViewById(R.id.lnLogOut);
 
 
-        lnProduct.setOnClickListener(new View.OnClickListener() {
+        lnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent mainIntent = new Intent(MainActivity.this, MenuProduct.class);
+                Intent mainIntent = new Intent(MainActivity.this, RegisterMember.class);
                 startActivity(mainIntent);
             }
         });
@@ -234,7 +235,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initView(){
-        lnProduct.setVisibility(View.GONE);
+        lnRegister.setVisibility(View.GONE);
         lnPoint.setVisibility(View.GONE);
         lnMemberCode.setVisibility(View.GONE);
         lnMyProfile.setVisibility(View.GONE);
@@ -259,6 +260,9 @@ public class MainActivity extends AppCompatActivity {
                 lnForgotPassword.setVisibility(View.VISIBLE);
             case "Logout":
                  lnLogOut.setVisibility(View.VISIBLE);
+                break;
+            case "Register New":
+                lnRegister.setVisibility(View.VISIBLE);
                 break;
         }
     }

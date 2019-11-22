@@ -8,4 +8,9 @@
     <dimen name="slide_title">30dp</dimen>
     <dimen name="slide_desc">16dp</dimen>
     <dimen name="desc_padding">40dp</dimen>
+    <dimen name="padding_16">16dp</dimen>
+    <dimen name="padding_12">12dp</dimen>
+    <dimen name="size_16">16dp</dimen>
+    <dimen name="margin_8">8dp</dimen>
+    <dimen name="zerodp">0dp</dimen>
 </resources>
