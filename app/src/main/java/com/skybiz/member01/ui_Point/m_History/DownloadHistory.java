@@ -101,11 +101,12 @@ public class DownloadHistory extends AsyncTask<Void,Void,String> {
                         row.put("CusName",rsData.getString(6));
                         row.put("CurCode",rsData.getString(7));
                         String DocType=rsData.getString(3);
-                        if(DocType.equals("Increase")) {
+                       /* if(DocType.equals("Increase")) {
                             dTotalPoint += rsData.getDouble(2);
                         }else{
                             dTotalPoint -= rsData.getDouble(2);
-                        }
+                        }*/
+                        dTotalPoint += rsData.getDouble(2);
                         results.put(row);
                     }
                     TotalPoint=zeroDecimal(dTotalPoint);

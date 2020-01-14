@@ -1,6 +1,7 @@
 package com.skybiz.member01.ui_Point.m_History;
 
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,6 +14,7 @@ import com.skybiz.member01.R;
 
 public class HistoryHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
     TextView vDate, vDescPoint,vPoint,vDocType;
+    ImageView vIcon;
     ItemClickListener itemClickListener;
 
     public HistoryHolder(View itemView) {
@@ -21,7 +23,8 @@ public class HistoryHolder extends RecyclerView.ViewHolder implements View.OnCli
         vDescPoint      =(TextView) itemView.findViewById(R.id.vDescPoint);
         vPoint          =(TextView) itemView.findViewById(R.id.vPoint);
         vDocType          =(TextView) itemView.findViewById(R.id.vDocType);
-        itemView.setOnClickListener(this);
+        vIcon          =(ImageView) itemView.findViewById(R.id.vIcon);
+        //itemView.setOnClickListener(this);
     }
 
     public void setItemClickListener(ItemClickListener itemClickListener){

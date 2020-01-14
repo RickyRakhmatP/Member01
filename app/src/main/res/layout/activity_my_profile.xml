@@ -10,202 +10,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="10dp"
-        android:weightSum="1"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.1"
-            android:weightSum="2"
-            android:orientation="horizontal"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="2dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.8"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
-                android:textColor="@color/colorBlack"
-                android:text="Name"
-                android:gravity="left|center"/>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1.2"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
-                android:textColor="@color/colorBlack"
-                android:text="Name"
-                android:gravity="left|center"
-                android:id="@+id/txtCusName"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.1"
-            android:weightSum="2"
-            android:orientation="horizontal"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="2dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.8"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
-                android:textColor="@color/colorBlack"
-                android:text="Email"
-                android:gravity="left|center"/>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1.2"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
-                android:textColor="@color/colorBlack"
-                android:text="Email"
-                android:gravity="left|center"
-                android:id="@+id/txtEmail"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.1"
-            android:weightSum="2"
-            android:orientation="horizontal"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="2dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.8"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
-                android:textColor="@color/colorBlack"
-                android:text="Mobile No"
-                android:gravity="left|center"/>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1.2"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
-                android:textColor="@color/colorBlack"
-                android:text="Mobile No"
-                android:gravity="left|center"
-                android:id="@+id/txtContactTel"/>
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.1"
-            android:weightSum="2"
-            android:orientation="horizontal"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="2dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.8"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
-                android:textColor="@color/colorBlack"
-                android:text="NRIC"
-                android:gravity="left|center"/>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1.2"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
-                android:textColor="@color/colorBlack"
-                android:text="NRIC"
-                android:gravity="left|center"
-                android:id="@+id/txtNRIC"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.1"
-            android:weightSum="2"
-            android:orientation="horizontal"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="2dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.8"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
-                android:textColor="@color/colorBlack"
-                android:text="DOB"
-                android:gravity="left|center"/>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1.2"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
-                android:textColor="@color/colorBlack"
-                android:text="DOB"
-                android:gravity="left|center"
-                android:id="@+id/txtDOB"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.1"
-            android:weightSum="2"
-            android:orientation="horizontal"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="2dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.8"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
-                android:textColor="@color/colorBlack"
-                android:text="Card No"
-                android:gravity="left|center"/>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1.2"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
-                android:textColor="@color/colorBlack"
-                android:text="Card No"
-                android:gravity="left|center"
-                android:id="@+id/txtCusCode"/>
-
-        </LinearLayout>
+        android:weightSum="2"
+        android:orientation="vertical"
+        android:gravity="bottom"
+        android:background="@color/colorAccent2">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -243,35 +51,292 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.1"
-            android:weightSum="2"
-            android:orientation="horizontal"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="2dp">
+            android:layout_weight="0.35"
+            android:layout_marginBottom="25dp">
 
-            <TextView
-                android:layout_width="0dp"
+            <ImageView
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="0.8"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
-                android:textColor="@color/colorBlack"
-                android:text="Password"
-                android:gravity="left|center"/>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
                 android:layout_weight="1.2"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
-                android:textColor="@color/colorBlack"
-                android:text="Password"
-                android:gravity="left|center"
-                android:id="@+id/txtPassword"/>
+                android:src="@drawable/ic_bgprofile"/>
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/wd_content"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:layout_weight="1.65"
+            android:weightSum="7"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:weightSum="2"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:orientation="vertical"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/wd_list_bottom">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="Name / Company Name"
+                    android:gravity="left|center"
+                    android:textColor="@color/color_primary"
+                    android:textStyle="bold"
+                    android:textSize="14dp"
+                    android:src="@drawable/point"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:textColor="@color/colorBlack"
+                    android:text="Name"
+                    android:textSize="12dp"
+                    android:gravity="left|center"
+                    android:id="@+id/txtCusName"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:weightSum="2"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:orientation="vertical"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/wd_list_bottom">>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:textColor="@color/color_primary"
+                    android:textStyle="bold"
+                    android:textSize="14dp"
+                    android:text="Email Address"
+                    android:gravity="left|center"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:textColor="@color/colorBlack"
+                    android:text="Email"
+                    android:textSize="12dp"
+                    android:gravity="left|center"
+                    android:id="@+id/txtEmail"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:weightSum="2"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:orientation="vertical"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/wd_list_bottom">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:textColor="@color/color_primary"
+                    android:textStyle="bold"
+                    android:textSize="14dp"
+                    android:text="Mobile Number"
+                    android:gravity="left|center"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:textColor="@color/colorBlack"
+                    android:text="Mobile No"
+                    android:textSize="12dp"
+                    android:gravity="left|center"
+                    android:id="@+id/txtContactTel"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:weightSum="2"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:orientation="vertical"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/wd_list_bottom">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:textColor="@color/color_primary"
+                    android:textStyle="bold"
+                    android:text="NRIC"
+                    android:textSize="14dp"
+                    android:gravity="left|center"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:textColor="@color/colorBlack"
+                    android:text="NRIC"
+                    android:textSize="12dp"
+                    android:gravity="left|center"
+                    android:id="@+id/txtNRIC"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:weightSum="2"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:orientation="vertical"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/wd_list_bottom">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:textColor="@color/color_primary"
+                    android:textStyle="bold"
+                    android:textSize="14dp"
+                    android:text="DOB"
+                    android:gravity="left|center"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:textColor="@color/colorBlack"
+                    android:text="DOB"
+                    android:textSize="12dp"
+                    android:gravity="left|center"
+                    android:id="@+id/txtDOB"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:weightSum="2"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:orientation="vertical"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/wd_list_bottom">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:textColor="@color/color_primary"
+                    android:textStyle="bold"
+                    android:textSize="14dp"
+                    android:text="Card Number"
+                    android:gravity="left|center"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:textColor="@color/colorBlack"
+                    android:text="Card No"
+                    android:textSize="12dp"
+                    android:gravity="left|center"
+                    android:id="@+id/txtCusCode"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:weightSum="2"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:orientation="vertical"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/wd_list_bottom">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:textColor="@color/color_primary"
+                    android:textStyle="bold"
+                    android:textSize="14dp"
+                    android:text="Password"
+                    android:gravity="left|center"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:textColor="@color/colorBlack"
+                    android:text="Password"
+                    android:textSize="12dp"
+                    android:gravity="left|center"
+                    android:id="@+id/txtPassword"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
 
     </LinearLayout>
 

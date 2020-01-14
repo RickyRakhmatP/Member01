@@ -42,23 +42,24 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryHolder> {
         final Double dPoint= Double.parseDouble(spacecraft.getPoint());
         final String DocType=spacecraft.getDocType();
         if(DocType.equals("Increase")) {
+            //drawble
             int i=c.getResources().getColor(R.color.color_primary2);
             holder.vPoint.setTextColor(i);
             holder.vPoint.setText(zeroDecimal(dPoint) + "P");
             holder.vDescPoint.setText("Bill # " + spacecraft.getRemark());
             holder.vDocType.setText("COLLECTED");
-            holder.vDocType.setBackgroundColor(Color.parseColor("#689f38"));
-            Drawable img = c.getResources().getDrawable( R.drawable.ic_dollar);
-            holder.vDocType.setCompoundDrawablesWithIntrinsicBounds( null, img, null, null);
+            holder.vDocType.setBackgroundColor(Color.parseColor("#ffffff"));
+            Drawable img = c.getResources().getDrawable( R.drawable.point_collect);
+            holder.vIcon.setImageDrawable(img);
         }else if(DocType.equals("Decrease")){
-            int i=c.getResources().getColor(R.color.colorBrownLight);
+            int i=c.getResources().getColor(R.color.color_danger);
             holder.vPoint.setTextColor(i);
-            holder.vPoint.setText("-"+zeroDecimal(dPoint) + "P");
+            holder.vPoint.setText(zeroDecimal(dPoint) + "P");
             holder.vDescPoint.setText(spacecraft.getRemark());
             holder.vDocType.setText("REDEEMED");
-            holder.vDocType.setBackgroundColor(Color.parseColor("#a1887f"));
-            Drawable img = c.getResources().getDrawable( R.drawable.ic_redeem);
-            holder.vDocType.setCompoundDrawablesWithIntrinsicBounds( null, img, null, null);
+            holder.vDocType.setBackgroundColor(Color.parseColor("#ffffff"));
+            Drawable img = c.getResources().getDrawable( R.drawable.point_redeem);
+            holder.vIcon.setImageDrawable(img);
 
         }
     }

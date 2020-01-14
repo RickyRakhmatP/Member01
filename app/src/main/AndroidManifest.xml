@@ -22,7 +22,8 @@
        </activity>
         -->
         <!-- setting activity-alias names -->
-        <activity android:name=".ui_MyProfile.MyProfile" />
+        <activity android:name=".ui_MyProfile.MyProfile"
+            android:screenOrientation="portrait" />
         <!--
 <activity android:name=".WelcomeActivity">
             <intent-filter>
@@ -35,13 +36,16 @@
         <activity
             android:name=".ui_MemberCode.MemberCode2"
             android:label="@string/title_activity_member_code2"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui_MemberCode.MemberCode"
-            android:windowSoftInputMode="adjustNothing" />
+            android:windowSoftInputMode="adjustPan"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui_Point.PointLedger"
-            android:windowSoftInputMode="adjustNothing" />
+            android:windowSoftInputMode="adjustNothing"
+            android:screenOrientation="portrait" />
         <activity android:name=".ui_Product.MenuProduct" />
         <activity android:name=".MainActivity" />
         <activity-alias
@@ -49,7 +53,8 @@
             android:enabled="true"
             android:icon="@mipmap/ic_launcher"
             android:label="Member01"
-            android:targetActivity=".WelcomeActivity">
+            android:targetActivity=".WelcomeActivity"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -62,7 +67,8 @@
             android:enabled="true"
             android:icon="@drawable/jati"
             android:label="Jati Frozen"
-            android:targetActivity=".MainActivity">
+            android:targetActivity=".MainActivity"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

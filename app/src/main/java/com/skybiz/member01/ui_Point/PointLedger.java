@@ -20,7 +20,6 @@ import java.util.Date;
 
 public class PointLedger extends AppCompatActivity {
 
-
     private GridLayoutManager lLayout;
     RecyclerView rv;
     TextView txtDate,txtDescPoint,txtPoint;

@@ -10,31 +10,192 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="10dp"
-        android:weightSum="3"
+        android:weightSum="2"
+        android:background="@color/colorAccent2"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.2"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="2dp"
-            android:weightSum="1"
-            android:orientation="horizontal">
+            android:layout_weight="0.28"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp"
+            android:weightSum="3"
+            android:orientation="horizontal"
+            android:background="@drawable/wd">
 
-            <TextView
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:text="Current Point Status"
-                android:textColor="@color/colorBlack"
-                android:textStyle="bold"
-                android:textSize="17sp"
-                android:gravity="left|center"/>
+                android:layout_weight="0.9"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="2dp"
+                android:orientation="vertical"
+                android:weightSum="1">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="0.7"
+                    android:src="@drawable/point_ledger"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.3"
+                    android:text="BALLANCE"
+                    android:layout_marginBottom="15dp"
+                    android:gravity="center"
+                    android:textColor="@color/color_primary"
+                    android:textSize="10sp"
+                    android:textStyle="bold|italic"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.4"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:weightSum="2"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="Point Ballance B/F"
+                    android:id="@+id/txtDescPoint"
+                    android:gravity="left|bottom"
+                    android:textColor="@color/colorBlack"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="D_ate"
+                    android:id="@+id/txtDateBF"
+                    android:gravity="left|top"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.7"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Loading"
+                    android:id="@+id/txtPointBF"
+                    android:gravity="center"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:paddingRight="10dp"
+                    android:paddingLeft="4dp"/>
+
+            </LinearLayout>
 
         </LinearLayout>
 
         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.72"
+            android:layout_marginTop="20dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="25dp"
+            android:paddingBottom="20dp"
+            android:weightSum="3"
+            android:orientation="vertical"
+            android:background="@drawable/wd_content"
+            android:gravity="center|top">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2.4"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:padding="50dp"
+                android:weightSum="2"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1.8"
+                    android:src="@drawable/point_redeem"
+                    android:layout_gravity="center"
+                    android:id="@+id/imgBarcode"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.2"
+                    android:text="Loading Current Date"
+                    android:textColor="@color/colorBlack"
+                    android:textStyle="bold"
+                    android:textSize="12sp"
+                    android:id="@+id/txtDateRedeem"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@drawable/wd_txtbox_dangerth"
+                android:layout_weight="0.3"
+                android:hint="0P"
+                android:id="@+id/txtRedeem"
+                android:gravity="center"
+                android:textColor="@color/color_danger"
+                android:textStyle="bold"
+                android:textSize="15sp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.3"
+                android:weightSum="1"
+                android:paddingBottom="5dp"
+                android:orientation="horizontal">
+
+                <Button
+                android:id="@+id/btnGenerate"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Redeem My Points"
+                android:textColor="@color/colorbg_white"
+                android:textAllCaps="false"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:background="@drawable/wd_btndanger_bothalf"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+
+
+        <LinearLayout
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.5"
@@ -82,13 +243,13 @@
                     android:gravity="left|bottom"
                     android:textColor="@color/colorBlack"/>
 
-                <TextView
+                <!--TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="0.75"
                     android:text="D_ate"
                     android:id="@+id/txtDateBF"
-                    android:gravity="left|top"/>
+                    android:gravity="left|top"/-->
 
 
             </LinearLayout>
@@ -100,7 +261,7 @@
                 android:layout_marginLeft="2dp"
                 android:layout_marginRight="2dp">
 
-                <TextView
+                <!-- TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -111,13 +272,14 @@
                     android:textStyle="bold"
                     android:textSize="15sp"
                     android:paddingRight="4dp"
-                    android:paddingLeft="4dp"/>
+                    android:paddingLeft="4dp"/ -->
 
             </LinearLayout>
 
         </LinearLayout>
 
         <LinearLayout
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.5"
@@ -165,13 +327,13 @@
                     android:gravity="left|bottom"
                     android:textColor="@color/colorBlack"/>
 
-                <TextView
+                <!--TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="0.75"
                     android:text="D_ate"
                     android:id="@+id/txtDateRedeem"
-                    android:gravity="left|top"/>
+                    android:gravity="left|top"/-->
 
 
             </LinearLayout>
@@ -183,7 +345,7 @@
                 android:layout_marginLeft="2dp"
                 android:layout_marginRight="2dp">
 
-                <EditText
+                <!--EditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/edborder"
@@ -195,13 +357,14 @@
                     android:textStyle="bold"
                     android:textSize="15sp"
                     android:paddingRight="4dp"
-                    android:paddingLeft="4dp"/>
+                    android:paddingLeft="4dp"/-->
 
             </LinearLayout>
 
         </LinearLayout>
 
         <LinearLayout
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.30"
@@ -210,7 +373,7 @@
             android:weightSum="1"
             android:orientation="horizontal">
 
-            <Button
+            <!--Button
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -220,25 +383,7 @@
                 android:textStyle="bold"
                 android:textSize="20sp"
                 android:gravity="center"
-                android:background="@color/colorPrimaryDark"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1.0"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:weightSum="1"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="100dp"
-                android:layout_weight="1"
-                android:layout_gravity="center"
-                android:id="@+id/imgBarcode"/>
+                android:background="@color/colorPrimaryDark"/-->
 
         </LinearLayout>
 

@@ -13,13 +13,14 @@
         android:layout_height="match_parent"
         android:weightSum="1"
         android:orientation="vertical"
-        android:layout_margin="20dp"
+        android:padding="20dp"
+        android:background="@color/colorAccent2"
         android:gravity="center_vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.25"
+            android:layout_weight="0.2"
             android:orientation="horizontal"
             android:weightSum="2"
             android:layout_gravity="center_horizontal"
@@ -35,24 +36,25 @@
                 android:layout_marginRight="4dp"
                 android:orientation="vertical"
                 android:weightSum="2"
-                android:background="@color/colorWhite"
+                android:background="@drawable/wd"
                 android:id="@+id/lnPoint">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight="1"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1.2"
                     android:src="@drawable/point"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:text="Point"
+                    android:text="My Point"
                     android:gravity="top|center"
-                    android:textSize="18sp"
-                    android:textColor="@color/colorBlack"/>
+                    android:textSize="15sp"
+                    android:textColor="@color/color_textHeader"
+                    android:textStyle="bold"/>
 
             </LinearLayout>
 
@@ -64,14 +66,14 @@
                 android:layout_marginRight="4dp"
                 android:orientation="vertical"
                 android:weightSum="2"
-                android:background="@color/colorWhite"
+                android:background="@drawable/wd"
                 android:id="@+id/lnMemberCode">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight="1"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1.2"
                     android:src="@drawable/member"/>
 
                 <TextView
@@ -80,8 +82,9 @@
                     android:layout_weight="1"
                     android:text="Member Code"
                     android:gravity="top|center"
-                    android:textSize="18sp"
-                    android:textColor="@color/colorBlack"/>
+                    android:textSize="15sp"
+                    android:textColor="@color/color_textHeader"
+                    android:textStyle="bold"/>
 
             </LinearLayout>
 
@@ -90,10 +93,11 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.25"
+            android:layout_weight="0.2"
             android:orientation="horizontal"
             android:weightSum="2"
             android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="6dp">
 
@@ -105,14 +109,14 @@
                 android:layout_marginRight="4dp"
                 android:orientation="vertical"
                 android:weightSum="2"
-                android:background="@color/colorWhite"
+                android:background="@drawable/wd"
                 android:id="@+id/lnMyProfile">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight="1"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1.2"
                     android:src="@drawable/ic_account"/>
 
                 <TextView
@@ -121,8 +125,9 @@
                     android:layout_weight="1"
                     android:text="My Profile"
                     android:gravity="top|center"
-                    android:textSize="18sp"
-                    android:textColor="@color/colorBlack"/>
+                    android:textSize="15sp"
+                    android:textColor="@color/color_textHeader"
+                    android:textStyle="bold"/>
 
             </LinearLayout>
 
@@ -134,24 +139,25 @@
                 android:layout_marginRight="4dp"
                 android:orientation="vertical"
                 android:weightSum="2"
-                android:background="@color/colorWhite"
+                android:background="@drawable/wd"
                 android:id="@+id/lnRegister">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight="1.0"
-                    android:src="@drawable/ic_assignment"/>
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1.2"
+                    android:src="@drawable/person_add"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1.0"
-                    android:text="Register \n New Member"
+                    android:text="Register Member"
                     android:gravity="top|center"
-                    android:textSize="18sp"
-                    android:textColor="@color/colorBlack"/>
+                    android:textSize="15sp"
+                    android:textColor="@color/color_textHeader"
+                    android:textStyle="bold"/>
 
             </LinearLayout>
 
@@ -161,10 +167,11 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.25"
+            android:layout_weight="0.2"
             android:orientation="horizontal"
             android:weightSum="2"
             android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="6dp">
 
@@ -177,14 +184,14 @@
                 android:layout_marginRight="4dp"
                 android:orientation="vertical"
                 android:weightSum="2"
-                android:background="@color/colorWhite"
+                android:background="@drawable/wd"
                 android:id="@+id/lnForgotPassword">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight="1"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1.2"
                     android:src="@drawable/forgot_password"/>
 
                 <TextView
@@ -193,8 +200,9 @@
                     android:layout_weight="1"
                     android:text="Forgot Password"
                     android:gravity="top|center"
-                    android:textSize="18sp"
-                    android:textColor="@color/colorBlack"/>
+                    android:textSize="15sp"
+                    android:textColor="@color/color_textHeader"
+                    android:textStyle="bold"/>
 
             </LinearLayout>
 
@@ -207,15 +215,15 @@
                 android:layout_marginRight="4dp"
                 android:orientation="vertical"
                 android:weightSum="2"
-                android:background="@color/colorWhite"
+                android:background="@drawable/wd"
                 android:id="@+id/lnLogOut">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight="1"
-                    android:src="@drawable/ic_exit"/>
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1.2"
+                    android:src="@drawable/log_out"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -223,8 +231,9 @@
                     android:layout_weight="1"
                     android:text="Log Out"
                     android:gravity="top|center"
-                    android:textSize="18sp"
-                    android:textColor="@color/colorBlack"/>
+                    android:textSize="15sp"
+                    android:textColor="@color/color_textHeader"
+                    android:textStyle="bold"/>
 
             </LinearLayout>
 

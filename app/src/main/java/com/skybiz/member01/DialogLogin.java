@@ -47,6 +47,7 @@ public class DialogLogin extends AppCompatDialogFragment {
                 fnOK();
             }
         });
+        getDialog().setTitle("Login");
         return view;
     }
 

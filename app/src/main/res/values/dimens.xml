@@ -13,4 +13,6 @@
     <dimen name="size_16">16dp</dimen>
     <dimen name="margin_8">8dp</dimen>
     <dimen name="zerodp">0dp</dimen>
+
+    <dimen name="wdis_width_img">250dp</dimen>
 </resources>

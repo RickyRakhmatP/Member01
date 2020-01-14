@@ -46,15 +46,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:text=""
-            android:paddingLeft="2dp"
-            android:paddingRight="2dp"
+            android:layout_marginLeft="10dp"
             android:hint="Your Store Code"
             android:textColor="@android:color/white"
-            android:textSize="16dp"
-            android:id="@+id/txtStoreCode"
+            android:textSize="14dp"
             android:visibility="gone"
+            android:id="@+id/txtStoreCode"
             android:textColorHint="@color/colorWhite"/>
 
     </RelativeLayout>
